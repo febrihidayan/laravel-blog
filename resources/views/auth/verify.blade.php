@@ -1,4 +1,6 @@
-@extends('layouts.auth')
+@extends('layouts.auth', [
+    'title' => 'Verify Your Email Address'
+])
 
 @section('auth')
 <div class="card-content">

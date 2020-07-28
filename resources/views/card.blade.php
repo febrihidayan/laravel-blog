@@ -1,4 +1,6 @@
-@extends('layouts.default')
+@extends('layouts.default', [
+    'title' => $topic->name
+])
 
 @section('content')
 <div class="columns is-centered is-multiline">

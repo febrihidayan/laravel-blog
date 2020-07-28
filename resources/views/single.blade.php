@@ -1,4 +1,6 @@
-@extends('layouts.default')
+@extends('layouts.default', [
+    'title' => $post->title
+])
 
 @section('content')
 <div class="columns is-centered">

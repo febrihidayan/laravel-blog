@@ -1,4 +1,6 @@
-@extends('layouts.auth')
+@extends('layouts.auth', [
+    'title' => 'Reset Password'
+])
 
 @section('auth')
 <div class="card-content">

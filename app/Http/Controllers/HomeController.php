@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Topic;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -20,11 +21,12 @@ class HomeController extends Controller
 
     public function topic($slug)
     {
-        $posts = Post::whereHas('topics', function($q) use ($slug) {
-            $q->where('slug', $slug);
-        })->paginate();
+        $topic = Topic::where('slug', $slug)->firstOrFail();
+        $posts = Post::where('topic_id', $topic->id)->paginate();
 
-        return view('card')->withPosts($posts);
+        return view('card')
+            ->withPosts($posts)
+            ->withTopic($topic);
     }
 
     public function single($slug)

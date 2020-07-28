@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.auth', [
+    'title' => 'Confirm Password'
+])
 
 @section('content')
 <div class="card-content">
