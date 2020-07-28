@@ -2,9 +2,7 @@
 Contoh aplikasi blog gratis dengan Framework Laravel.
 
 ## Instalasi
-Anda cukup menjalankan perintah composer di terminal, kemudian jalakan perintah ini.
-
-[Demo](https://demo.hilyahtech.com/laravel-blog-lite/)
+Anda cukup menjalankan perintah composer di terminal, kemudian jalakan perintah ini. [Demo](https://demo.hilyahtech.com/laravel-blog-lite/)
 
 ```
 composer create-project  --prefer-dist febrihidayan/laravel-blog
