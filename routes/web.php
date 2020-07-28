@@ -23,7 +23,7 @@ Route::group([
     'prefix' => 'manage',
     'namespace' => 'Manage',
     'as' => 'manage.',
-    'middleware' => 'auth'
+    'middleware' => ['auth', 'verified']
 ], function () {
 
     Route::get('/', 'DashboardController@index');

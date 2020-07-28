@@ -11,7 +11,7 @@
     <form action="{{ route('password.email') }}" method="post">
         @csrf
         <div class="field">
-            <label for="email" class="label">Alamat Email</label>
+            <label for="email" class="label">Email Address</label>
             <input type="email" name="email" id="email" class="input" value="{{ old('email') }}">
             @error('email')
                 <p class="help is-danger">{{ $message }}</p>
