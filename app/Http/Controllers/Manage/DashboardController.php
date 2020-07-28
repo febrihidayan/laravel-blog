@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Manage;
 
 use App\Http\Controllers\Controller;
+use App\Post;
+use App\Tag;
+use App\Topic;
+use App\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -19,72 +23,23 @@ class DashboardController extends Controller
 
     protected function dashboard()
     {
-        return view('layouts.manage');
-    }
+        if (auth()->user()->role == 'admin') {
+            $tile = [
+                'tags' => Tag::all()->count(),
+                'topics' => Topic::all()->count(),
+                'posts' => Post::all()->count(),
+                'users' => User::all()->count(),
+            ];
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+            $posts = Post::limit(5)->latest()->get();
+            $users = User::limit(5)->latest()->get();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+            return view('manage.dashboard')
+                ->withTile($tile)
+                ->withPosts($posts)
+                ->withUsers($users);
+        }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect()->route('manane.posts.index');
     }
 }

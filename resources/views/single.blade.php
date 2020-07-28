@@ -17,6 +17,11 @@
             <div class="media-content">
                 <strong>{{ $post->users->name }}</strong>
             </div>
+            @if (auth()->id() === $post->user_id)
+                <div class="media-right">
+                    <a href="{{ route('manage.posts.edit', $post->id) }}">Edit Post</a>
+                </div>
+            @endif
         </div>
     </div>
 </div>
