@@ -40,6 +40,6 @@ class DashboardController extends Controller
                 ->withUsers($users);
         }
 
-        return redirect()->route('manane.posts.index');
+        return redirect()->route('manage.posts.index');
     }
 }

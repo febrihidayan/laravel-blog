@@ -16,8 +16,8 @@
             </div>
             <div class="navbar-menu">
                 <div class="navbar-start">
-                    <a href="{{ route('manage.dashboard') }}" class="navbar-item is-tab">Dashboard</a>
                     @if (auth()->user()->role === 'admin')
+                    <a href="{{ route('manage.dashboard') }}" class="navbar-item is-tab">Dashboard</a>
                         <a href="{{ route('manage.tags.index') }}" class="navbar-item is-tab">Tags</a>
                         <a href="{{ route('manage.topics.index') }}" class="navbar-item is-tab">Topics</a>
                     @endif
