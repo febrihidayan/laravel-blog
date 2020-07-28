@@ -17,6 +17,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('topic/{slug}', 'HomeController@topic')->name('topic');
 
 Route::group([
     'prefix' => 'manage',
@@ -38,4 +39,6 @@ Route::group([
     Route::resource('users', 'UserController');
 
 });
+
+Route::get('{slug}', 'HomeController@single')->name('single');
 

@@ -20,7 +20,7 @@
             <div class="navbar-menu">
                 <div class="navbar-start">
                     @foreach ($topics as $item)
-                        <a href="{{ $item->slug }}" class="navbar-item is-tab">{{ $item->name }}</a>
+                        <a href="{{ route('topic', $item->slug) }}" class="navbar-item is-tab">{{ $item->name }}</a>
                     @endforeach
                 </div>
                 <div class="navbar-end">
