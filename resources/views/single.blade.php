@@ -7,6 +7,11 @@
         <small><i>{{ $post->excerpt }}</i></small>
         <hr>
         <div class="content">{{ $post->content }}</div>
+        <div class="tags">
+            @foreach ($post->tags as $tag)
+                <span class="tag">{{ $tag->name }}</span>
+            @endforeach
+        </div>
         <hr>
         <div class="media">
             <div class="media-left">
