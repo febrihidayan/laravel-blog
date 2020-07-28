@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Manage;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -51,6 +52,9 @@ class UserController extends Controller
         if (!empty($request->password)) {
             $valid['password'] = 'required|min:6|max:191';
         }
+
+        $password = !empty($request->password) ? $password : 'password';
+        $request->merge(['password' => Hash::make($password)]);
 
         $request->validate($valid);
 
@@ -100,6 +104,9 @@ class UserController extends Controller
 
         if (!empty($request->password)) {
             $valid['password'] = 'required|min:6|max:191';
+            $request->merge(['password' => Hash::make($request->password)]);
+        } else {
+            $request->replace($request->except('password'));
         }
 
         $request->validate($valid);
