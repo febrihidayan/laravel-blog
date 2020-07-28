@@ -21,7 +21,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::group([
     'prefix' => 'manage',
     'namespace' => 'Manage',
-    'as' => 'manage.'
+    'as' => 'manage.',
+    'middleware' => 'auth'
 ], function () {
 
     Route::get('/', 'DashboardController@index');

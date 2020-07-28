@@ -17,10 +17,14 @@
             <div class="navbar-menu">
                 <div class="navbar-start">
                     <a href="{{ route('manage.dashboard') }}" class="navbar-item is-tab">Dashboard</a>
-                    <a href="{{ route('manage.tags.index') }}" class="navbar-item is-tab">Tags</a>
-                    <a href="{{ route('manage.topics.index') }}" class="navbar-item is-tab">Topics</a>
+                    @if (auth()->user()->role === 'admin')
+                        <a href="{{ route('manage.tags.index') }}" class="navbar-item is-tab">Tags</a>
+                        <a href="{{ route('manage.topics.index') }}" class="navbar-item is-tab">Topics</a>
+                    @endif
                     <a href="{{ route('manage.posts.index') }}" class="navbar-item is-tab">Posts</a>
-                    <a href="{{ route('manage.users.index') }}" class="navbar-item is-tab">Users</a>
+                    @if (auth()->user()->role === 'admin')
+                        <a href="{{ route('manage.users.index') }}" class="navbar-item is-tab">Users</a>
+                    @endif
                 </div>
                 <div class="navbar-end">
                     <div class="navbar-item has-dropdown is-hoverable">

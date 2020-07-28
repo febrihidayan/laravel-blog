@@ -45,10 +45,17 @@
             </div>
         </div>
     </nav>
-    <section class="section">
+    <section class="section" style="min-height:500px;">
         <div class="container mt-6">
             @yield('content')
         </div>
     </section>
+    <footer class="footer">
+        <div class="container has-text-centered">
+            <p>Dibuat oleh <a href="https://github.com/febrihidayan" target="_blank">Febri Hidayan</a></p>
+            <br>
+            <p>Handcrafted with By <a href="https://hilyahtech.com" target="_blank">Hilyahtech</a></p>
+        </div>
+    </footer>
 </body>
 </html>

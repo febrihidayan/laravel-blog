@@ -32,9 +32,8 @@ class LaravelSetupTables extends Migration
             $table->id('id');
             $table->string('title');
             $table->string('slug')->unique();
-            $table->string('exceprt', 160)->nullable();
+            $table->string('excerpt', 160)->nullable();
             $table->longText('content');
-            $table->timestamp('published_at')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedInteger('topic_id')->nullable();
             $table->timestamps();
