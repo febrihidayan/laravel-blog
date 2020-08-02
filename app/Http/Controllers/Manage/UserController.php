@@ -53,7 +53,7 @@ class UserController extends Controller
             $valid['password'] = 'required|min:6|max:191';
         }
 
-        $password = !empty($request->password) ? $password : 'password';
+        $password = !empty($request->password) ? $request->password : 'password';
         $request->merge(['password' => Hash::make($password)]);
 
         $request->validate($valid);
